@@ -3,8 +3,7 @@ html {
   --fg: #111318;      
   --accent: #8513ab;  
   --muted: #ede8ef;   
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-}
+  font-family: "Poppins", sans-serif;}
 
 body {
   background: var(--bg);
