@@ -21,7 +21,12 @@
         <li><a href="#stopwatch">Stopwatch</a></li>
         <li><a href="#timer">Timer</a></li>
       </ul>
+      <label class="switch">
+        <input type="checkbox" id="theme-switch">
+        <span class="slider"></span>
+      </label>
     </nav>
+
     <main>
       <section id="clock">
         <x-clock>
@@ -87,4 +92,26 @@
     </main>
     <script type="module" src="./src/app.js"></script>
   </body>
+<script>
+  const root = document.documentElement;
+  const toggle = document.getElementById('theme-switch');
+
+  // Cargar el tema guardado
+  if (localStorage.getItem('theme') === 'dark') {
+    toggle.checked = true;
+    root.setAttribute('data-theme', 'dark');
+  }
+
+  toggle.addEventListener('change', () => {
+    if (toggle.checked) {
+      root.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
+
+
 </html>

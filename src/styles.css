@@ -1,6 +1,7 @@
 html {
+  color-scheme: light dark;
   --bg: #f7f7fb;      
-  --fg: #111318;      
+  --fg: #8896b9;      
   --accent: #8513ab;  
   --muted: #ede8ef;   
   font-family: "Poppins", sans-serif;}
@@ -55,4 +56,55 @@ main {
 
 main > section:not(:target) {
   display: none;
+}
+
+/* ==== Botón tipo switch para tema ==== */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 34px;
+}
+
+.slider::before {
+  content: "🌙";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+/* Cuando está activado (modo oscuro) */
+input:checked + .slider {
+  background-color: var(--accent);
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+  content: "☀️";
 }
