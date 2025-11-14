@@ -21,9 +21,9 @@ nav {
   display: flex;
   justify-content: center;
   padding: 14px 10px;
-  background: rgba(255,255,255,0.65);
+  background: rgba(254, 255, 246, 0.931);
   backdrop-filter: blur(6px);
-  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  box-shadow: 0 2px 5px rgba(78, 211, 162, 0.871);
 }
 
 nav > ul {
@@ -181,13 +181,13 @@ nav {
 
 @media (prefers-color-scheme: dark){
   html{
-    --bg:#111315; --fg:#f4f4f4;
+    --bg:#111315; --fg:#000000;
     --accent:#63c4df; --accent-2:#4ba1b8; --muted:#2a2a2a;
   }
 }
 
 html[data-theme="dark"]{
-  --bg:#111315; --fg:#f4f4f4;
+  --bg:#000000; --fg:#f4f4f4;
   --accent:#63c4df; --accent-2:#4ba1b8; --muted:#2a2a2a;
 }
 html[data-theme="light"]{
