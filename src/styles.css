@@ -14,100 +14,62 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-
-button, a {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 4px 14px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-.card, .panel {
-  background: var(--bg);
-  border: 1px solid var(--muted);
-  border-radius: 10px;
-  padding: 14px;
-}
-
-body {
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
   display: flex;
-  flex-direction: column;
-  margin: 0;
-  height: 100vh;
+  justify-content: center;
+  padding: 14px 10px;
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
 }
 
 nav > ul {
   display: flex;
-  flex-wrap: wrap;
+  gap: 16px;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-nav > ul > li {
-  flex: 1 1 auto;
-  text-align: center;
+nav > ul > li { flex: 0 0 auto; }
+
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.12);
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+nav a:hover { 
+  background: var(--accent-2); 
+  transform: translateY(-2px); 
+}
+nav a:focus-visible { 
+  outline: 2px solid var(--accent-2); 
+  outline-offset: 3px; 
 }
 
 main {
-  display: flex;
-}
-
-main > section:not(:target) {
-  display: none;
-}
-
-/* ==== Botón tipo switch para tema ==== */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 26px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.3s;
-  border-radius: 34px;
-}
-
-.slider::before {
-  content: "🌙";
-  position: absolute;
-  height: 22px;
-  width: 22px;
-  left: 2px;
-  bottom: 2px;
-  background-color: white;
-  border-radius: 50%;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.3s;
+  padding: 32px 20px 60px;
 }
 
-/* Cuando está activado (modo oscuro) */
-input:checked + .slider {
-  background-color: var(--accent);
-}
+main > section:not(:target) { display: none; }
 
-input:checked + .slider::before {
-  transform: translateX(24px);
-  content: "☀️";
+main > section {
+  width: min(900px, 92vw);
+  display: grid;
+  gap: 28px;
+  justify-items: center;
 }
