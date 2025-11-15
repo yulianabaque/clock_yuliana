@@ -1,3 +1,4 @@
+/* PALETA (TEMA CLARO POR DEFECTO) */
 html {
   --bg: #f7f7fb;
   --fg: #8896b9;
@@ -10,6 +11,21 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
+/* TEMA OSCURO AUTOMÁTICO (SEGÚN EL SISTEMA) */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) {
+    --bg: #000000;
+    --fg: #f4f4f4;
+    --accent: #63c4df;
+    --accent-2: #4ba1b8;
+    --card-bg: #1a1a1a;
+    --text-inverted: #000000;
+    --muted: #2a2a2a;
+    --shadow: rgba(0,0,0,0.35);
+  }
+}
+
+/* TEMA OSCURO MANUAL */
 html[data-theme="dark"] {
   --bg: #000000;
   --fg: #f4f4f4;
@@ -19,6 +35,18 @@ html[data-theme="dark"] {
   --text-inverted: #000000;
   --muted: #2a2a2a;
   --shadow: rgba(0,0,0,0.35);
+}
+
+/* TEMA CLARO MANUAL */
+html[data-theme="light"] {
+  --bg: #f7f7fb;
+  --fg: #8896b9;
+  --accent: #8513ab;
+  --accent-2: #a36ad3;
+  --card-bg: #ffffff;
+  --text-inverted: #ffffff;
+  --muted: #ede8ef;
+  --shadow: rgba(0,0,0,0.15);
 }
 
 html {
