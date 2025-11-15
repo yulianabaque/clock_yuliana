@@ -195,4 +195,4 @@ html[data-theme="light"]{
   --accent:#529ab0; --accent-2:#3b7e95; --muted:#e6e9f0;
 }
 
-nav a .material-icons { vertical-align: -2px; margin-right: 6px; font-size: 18px; }
+nav a .material-icons { vertical-align: -3px; margin-right: 6px; font-size: 18px; }

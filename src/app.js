@@ -18,4 +18,4 @@ customElements.define("x-timer", Timer);
     const mode = toggle.checked ? 'dark' : 'light';
     root.setAttribute('data-theme', mode);
     localStorage.setItem('theme', mode);
-  });
+  }); 
