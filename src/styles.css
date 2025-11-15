@@ -11,7 +11,7 @@ html {
   font-family: "Poppins", sans-serif;
 }
 
-/* TEMA OSCURO AUTOMÁTICO (SEGÚN EL SISTEMA) */
+/* TEMA OSCURO */
 @media (prefers-color-scheme: dark) {
   html:not([data-theme]) {
     --bg: #000000;
@@ -39,9 +39,9 @@ html[data-theme="dark"] {
 
 /* TEMA CLARO MANUAL */
 html[data-theme="light"] {
-  --bg: #f7f7fb;
-  --fg: #8896b9;
-  --accent: #8513ab;
+  --bg: #ffffff;
+  --fg: #000000;
+  --accent: #651860;
   --accent-2: #a36ad3;
   --card-bg: #ffffff;
   --text-inverted: #ffffff;
@@ -68,19 +68,22 @@ nav {
   top: 0;
   z-index: 5;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
   padding: 14px 10px;
   background: rgba(254, 255, 246, 0.931);
   backdrop-filter: blur(6px);
   box-shadow: 0 2px 5px rgba(78, 211, 162, 0.871);
   position: relative;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-nav > ul {
+nav ul {
   display: flex;
   gap: 16px;
   list-style: none;
-  margin: 0;
+  margin: 0 auto;   /* 👈 ESTO LOS CENTRA */
   padding: 0;
 }
 
@@ -245,3 +248,9 @@ input[type="time"], input[type="number"], input[type="text"] {
 
 #theme-switch:checked + .switch { background: var(--accent); }
 #theme-switch:checked + .switch::after { transform:translateX(24px); }
+
+/* LOGO */
+.logo {
+  height: 32px;
+  margin-right: 20px;
+}
