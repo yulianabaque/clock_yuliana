@@ -14,7 +14,9 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
   </head>
+  
   <body>
+      <audio id="alarm-sound" src="src/sounds/alarm.wav" preload="auto"></audio>
 <nav>
   <img src="src/img/logo.png" alt="Logo" class="logo">
 
@@ -41,21 +43,21 @@
       </section>
       <section id="alarm">
         <x-alarm>
-          <template>
-            <section class="alarms">
-              <input type="time" min="00:00" max="23:59" step="1" />
-              <section class="controls">
-                <button class="start material-icons">alarm_on</button>
-                <button class="pause material-icons">alarm_off</button>
-                <button class="delete material-icons">delete</button>
-              </section>
+        <template>
+          <section class="alarms">
+            <input type="time" min="00:00" max="23:59" step="1" />
+            <section class="controls">
+              <button class="start material-icons">alarm_on</button>
+              <button class="pause material-icons">alarm_off</button>
+              <button class="delete material-icons">delete</button>
             </section>
-          </template>
-          <section class="items"></section>
-          <section class="controls">
-            <button class="add material-icons">add_alarm</button>
           </section>
-        </x-alarm>
+        </template>
+        <section class="items"></section>
+        <section class="controls">
+          <button class="add material-icons">add_alarm</button>
+        </section>
+      </x-alarm>
       </section>
       <section id="stopwatch">
         <x-stopwatch>
@@ -96,28 +98,7 @@
         </x-timer>
       </section>
     </main>
-    <script type="module" src="./src/app.js"></script>
+    <script type="module" src="src/app.js"></script>
   </body>
-<script>
-  const root = document.documentElement;
-  const toggle = document.getElementById('theme-switch');
-
-  // Cargar el tema guardado
-  if (localStorage.getItem('theme') === 'dark') {
-    toggle.checked = true;
-    root.setAttribute('data-theme', 'dark');
-  }
-
-  toggle.addEventListener('change', () => {
-    if (toggle.checked) {
-      root.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      root.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'light');
-    }
-  });
-</script>
-
 
 </html>

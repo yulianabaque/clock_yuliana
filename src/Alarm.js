@@ -9,15 +9,25 @@ export default class Alarm extends HTMLElement {
     this.#intervalCallback = () => {
       this.alarms.forEach((alarm) => {
         const { value } = alarm.querySelector("input");
-        const date =
-          new Date(value).getTime() ||
-          new Date(`${new Date().toLocaleDateString()} ${value}`).getTime();
-        if (date) {
+        if (!value) return;
+        const [hh, mm, ss] = value.split(":").map(Number);
+        const now = new Date();
+        const date = new Date(
+          now.getFullYear(),
+          now.getMonth(),
+          now.getDate(),
+          hh,
+          mm,
+          ss ?? 0
+        ).getTime();
+
+        if (alarm.hasAttribute("paused")) return;
+        if (!isNaN(date)) {
           const delta = Date.now() - date;
           if (delta > 0 && delta < new Date(this.duration)) {
             alarm.setAttribute("ringing", "");
-            this.dispatchEvent(
-              new CustomEvent("ring", { bubbles: true, detail: alarm })
+            document.dispatchEvent(
+              new CustomEvent("ring", { detail: alarm })
             );
             return;
           }
@@ -62,6 +72,7 @@ export default class Alarm extends HTMLElement {
   handleEvent(event) {
     const { target } = event;
     const { classList } = target;
+
     if (classList.contains("add")) {
       this.add();
     } else if (classList.contains("delete")) {
