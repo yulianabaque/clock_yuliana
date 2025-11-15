@@ -253,7 +253,7 @@ input[type="time"], input[type="number"], input[type="text"] {
 }
 
 /* Responsive*/
-@media (max-width: 950px) {
+@media (max-width: 750px) {
 
   nav {
     flex-direction: column;
@@ -285,8 +285,6 @@ input[type="time"], input[type="number"], input[type="text"] {
     width: 80%;
     text-align: center;
   }
-
-  /* Interruptor de tema (dark/light) */
   .theme-toggle {
     margin-top: 5px;
   }
